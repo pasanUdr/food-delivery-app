@@ -1,23 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:test/components/my_button.dart';
 import 'package:test/components/my_textfield.dart';
+import 'package:test/pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
-
   final void Function()? onTap;
 
   const LoginPage({super.key, required this.onTap});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();}
+  State<LoginPage> createState() => _LoginPageState();
+}
 
-class _LoginPageState extends State<LoginPage>{
-
+class _LoginPageState extends State<LoginPage> {
   //text editing controllers
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  
+  //login method
+  void login() {
+    /*
+    f533 authentication here
+    */
+    //navigte to home page
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const HomePage()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +71,7 @@ class _LoginPageState extends State<LoginPage>{
               height: 15,
             ),
             //sign in btn
-            MyButton(onTap: () {}, text: "Sign In"),
+            MyButton( onTap: login, text: "Sign In"),
             const SizedBox(
               height: 15,
             ),
